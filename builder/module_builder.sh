@@ -5,20 +5,21 @@ build_status_module() {
   local icon="$2"
   local color="$3"
   local text="$4"
+  local background="$5"
 
   if [ "$status_fill" = "icon" ]; then
     local bg
     local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
-    local show_text="#[fg=$thm_fg,bg=#1a1d21] $text"
+    local show_text="#[fg=$thm_fg,bg=$background] $text"
 
     if [ "$status_connect_separator" = "yes" ]; then
-      bg="$thm_gray"
+      bg="$background"
     else
       bg="default"
     fi
 
     local show_left_separator="#[fg=$color,bg=$bg,nobold,nounderscore,noitalics]$status_left_separator"
-    local show_right_separator="#[fg=$thm_gray,bg=$bg,nobold,nounderscore,noitalics]$status_right_separator"
+    local show_right_separator="#[fg=$background,bg=$bg,nobold,nounderscore,noitalics]$status_right_separator"
   fi
 
   if [ "$status_fill" = "all" ]; then

@@ -1,7 +1,7 @@
 # Requires https://github.com/jonmosco/kube-tmux
 
 show_kube() {
-  local index icon color text context_color namespace_color symbol_enabled module
+  local index icon color text background context_color namespace_color symbol_enabled module
 
   tmux_batch_setup_status_module "kube"
 
@@ -17,8 +17,9 @@ show_kube() {
   namespace_color=$(get_tmux_batch_option "@catppuccin_kube_namespace_color" "#{thm_cyan}")
   symbol_enabled=${KUBE_TMUX_SYMBOL_ENABLE:-false}
   text=$(get_tmux_batch_option "@catppuccin_kube_text" "#(KUBE_TMUX_SYMBOL_ENABLE=$symbol_enabled \${TMUX_PLUGIN_MANAGER_PATH}kube-tmux/kube.tmux 250 '$context_color' '$namespace_color')")
+  background=$(get_tmux_batch_option "@catppuccin_kube_background" "$thm_gray")
 
-  module=$(build_status_module "$index" "$icon" "$color" "$text")
+  module=$(build_status_module "$index" "$icon" "$color" "$text" "$background")
 
   echo "$module"
 }

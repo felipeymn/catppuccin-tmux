@@ -1,5 +1,5 @@
 show_cpu() {
-  local index icon color text module
+  local index icon color text background module
 
   tmux_batch_setup_status_module "cpu"
 
@@ -13,8 +13,9 @@ show_cpu() {
   icon=$(get_tmux_batch_option "@catppuccin_cpu_icon" "")
   color="$(get_tmux_batch_option "@catppuccin_cpu_color" "#{cpu_bg_color}")"
   text="$(get_tmux_batch_option "@catppuccin_cpu_text" "#{cpu_percentage}")"
+  background=$(get_tmux_batch_option "@catppuccin_cpu_background" "$thm_gray")
 
-  module=$(build_status_module "$index" "$icon" "$color" "$text")
+  module=$(build_status_module "$index" "$icon" "$color" "$text" "$background")
 
   echo "$module"
 }

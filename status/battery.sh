@@ -1,5 +1,5 @@
 show_battery() {
-  local index icon color text module
+  local index icon color text background module
 
   tmux_batch_setup_status_module "battery"
 
@@ -23,8 +23,9 @@ show_battery() {
   icon=$(get_tmux_batch_option "@catppuccin_battery_icon" "#{battery_icon}")
   color=$(get_tmux_batch_option "@catppuccin_battery_color" "$thm_yellow")
   text=$(get_tmux_batch_option "@catppuccin_battery_text" "#{battery_percentage}")
+  background=$(get_tmux_batch_option "@catppuccin_host_background" "$thm_gray")
 
-  module=$(build_status_module "$index" "$icon" "$color" "$text")
+  module=$(build_status_module "$index" "$icon" "$color" "$text" "$background")
 
   echo "$module"
 }
