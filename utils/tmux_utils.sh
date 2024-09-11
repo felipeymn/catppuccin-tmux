@@ -148,4 +148,5 @@ tmux_batch_setup_status_module() {
   add_tmux_batch_option "@catppuccin_${name}_icon"
   add_tmux_batch_option "@catppuccin_${name}_color"
   add_tmux_batch_option "@catppuccin_${name}_text"
+  add_tmux_batch_option "@catppuccin_${name}_background"
 }
