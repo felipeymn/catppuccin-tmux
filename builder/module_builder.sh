@@ -9,7 +9,7 @@ build_status_module() {
   if [ "$status_fill" = "icon" ]; then
     local bg
     local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
-    local show_text="#[fg=$thm_fg,bg=$thm_gray] $text"
+    local show_text="#[fg=$thm_fg,bg=#1a1d21] $text"
 
     if [ "$status_connect_separator" = "yes" ]; then
       bg="$thm_gray"
